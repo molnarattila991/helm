@@ -28,3 +28,5 @@ spec:
               value: {{ .Values.components.app_be_authentication.env.messageQueuConnectionString }}
             - name: NEST_MONGODB_CONNECTION_STRING
               value: {{ .Values.components.app_be_authentication.env.mongodbConnectionString }}
+            - name: NEST_MONGODB_DB_NAME
+              value: {{ .Values.components.app_be_authentication.env.mongodbName }}

@@ -23,7 +23,7 @@ components:
     appName: "app-be-authentication"
     image: 
       name: "app-be-authentication"
-      version: "v1.0.1"
+      version: "v1.0.2"
       policy: "IfNotPresent"
     port: 
       port: 3002
@@ -32,13 +32,14 @@ components:
     env:
       apiPort: "3002"
       messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
-      mongodbConnectionString: "mongodb+srv://attila:Idq2fdKRxWMceDx4@cluster0.ml4i0.mongodb.net/nestjs-practise?retryWrites=true&w=majority"
+      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbName: "nestjs-practise"
 
   app_be_user:
     appName: "app-be-user"
     image: 
       name: "app-be-user"
-      version: "v1.0.4"
+      version: "v1.0.5"
       policy: "IfNotPresent"
     port: 
       port: 3001
@@ -47,4 +48,21 @@ components:
     env:
       apiPort: "3001"
       messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
-      mongodbConnectionString: "mongodb+srv://attila:Idq2fdKRxWMceDx4@cluster0.ml4i0.mongodb.net/nestjs-practise?retryWrites=true&w=majority"
+      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbName: "nestjs-practise"
+
+  app_be_product:
+    appName: "app-be-product"
+    image: 
+      name: "app-be-product"
+      version: "v1.0.0"
+      policy: "IfNotPresent"
+    port: 
+      port: 3003
+      target: 3003
+      container: 3003
+    env:
+      apiPort: "3003"
+      messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
+      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbName: "nestjs-practise"

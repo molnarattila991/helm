@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.components.app_be_product.appName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.components.app_be_product.appName }}
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.components.app_be_product.appName }}
+    spec:
+      containers:
+        - name: {{ .Values.components.app_be_product.appName }}
+          image: {{ .Values.components.app_be_product.image.name }}:{{ .Values.components.app_be_product.image.version }}
+          imagePullPolicy:  {{ .Values.components.app_be_product.image.policy }}
+          ports:
+            - containerPort:  {{ .Values.components.app_be_product.port.container }}
+              protocol: TCP
+          env:
+            - name: NEST_APP_NAME
+              value: {{ .Values.components.app_be_product.appName }}
+            - name: NEST_API_PORT
+              value: {{ quote .Values.components.app_be_product.env.apiPort }}
+            - name: NEST_MQ_CONNECTION_STRING
+              value: {{ .Values.components.app_be_product.env.messageQueuConnectionString }}
+            - name: NEST_MONGODB_CONNECTION_STRING
+              value: {{ .Values.components.app_be_product.env.mongodbConnectionString }}
+            - name: NEST_MONGODB_DB_NAME
+              value: {{ .Values.components.app_be_product.env.mongodbName }}

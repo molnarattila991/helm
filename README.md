@@ -23,3 +23,7 @@
 - helm uninstall project-practise
 - helm package project-practise
 - helm install project-practise .\project-practise-0.1.0.tgz
+
+# MongoDB
+- based on: https://devopscube.com/deploy-mongodb-kubernetes/
+- cloned repo into infra-be-db-mongodb (git clone https://github.com/scriptcamp/kubernetes-mongodb.git)
