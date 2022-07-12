@@ -32,7 +32,7 @@ components:
     env:
       apiPort: "3002"
       messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
-      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
 
   app_be_user:
@@ -48,7 +48,7 @@ components:
     env:
       apiPort: "3001"
       messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
-      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
 
   app_be_product:
@@ -64,5 +64,5 @@ components:
     env:
       apiPort: "3003"
       messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
-      mongodbConnectionString: "mongodb://adminuser:password123@localhost:32000/?retryWrites=true&w=majority"
+      mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
