@@ -1,0 +1,46 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledJob
+metadata:
+  name: app-be-job-long
+spec:
+  jobTargetRef:
+    template:
+      spec:
+        containers:
+          - name: app-be-job-long
+            image: app-be-job-long:v1.0.2
+            imagePullPolicy: IfNotPresent
+        restartPolicy: Never
+    backoffLimit: 1
+  pollingInterval: 5             # Optional. Default: 30 seconds
+  maxReplicaCount: 3             # Optional. Default: 100
+  successfulJobsHistoryLimit: 0   # Optional. Default: 100. How many completed jobs should be kept.
+  failedJobsHistoryLimit: 10      # Optional. Default: 100. How many failed jobs should be kept.
+  triggers:
+    - type: mongodb
+      metadata:
+        dbName: "test"
+        collection: "priority"
+        query: '{"state": "notStarted"}'
+        queryValue: "1"
+        metricName: "global-metric"
+      authenticationRef:
+        name: mongodb-trigger
+---
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: mongodb-trigger
+spec:
+  secretTargetRef:
+    - parameter: connectionString
+      name: mongodb-secret
+      key: connect
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mongodb-secret
+type: Opaque
+data:
+  connect: bW9uZ29kYjovL2FkbWludXNlcjpwYXNzd29yZDEyM0Btb25nby1ub2RlcG9ydC1zdmMuZGVmYXVsdDoyNzAxNy8/cmV0cnlXcml0ZXM9dHJ1ZSZ3PW1ham9yaXR5
