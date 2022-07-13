@@ -27,9 +27,15 @@
 - helm package project-practise
 - helm install project-practise .\project-practise-0.1.0.tgz
 
-# MongoDB
+# Third Party components
+
+## MongoDB
 - based on: https://devopscube.com/deploy-mongodb-kubernetes/
 - cloned repo into infra-be-db-mongodb (git clone https://github.com/scriptcamp/kubernetes-mongodb.git)
 
-# Keda scaler
+## Keda scaler
 - based on: https://keda.sh/docs/2.7/deploy/#yaml
+
+## Redis
+- based on: https://phoenixnap.com/kb/kubernetes-redis, https://stackoverflow.com/questions/52552876/configuring-third-party-helm-charts-from-my-application-helm-chart
+- helm dependency update ./project-testing

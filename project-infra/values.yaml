@@ -5,3 +5,10 @@
 replicaCount: 1
 
 components:
+
+## Redis overwirte
+redis:
+  replica:
+    replicaCount: 1
+  master:
+    count: 1
