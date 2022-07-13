@@ -30,3 +30,6 @@
 # MongoDB
 - based on: https://devopscube.com/deploy-mongodb-kubernetes/
 - cloned repo into infra-be-db-mongodb (git clone https://github.com/scriptcamp/kubernetes-mongodb.git)
+
+# Keda scaler
+- based on: https://keda.sh/docs/2.7/deploy/#yaml
