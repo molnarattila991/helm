@@ -5,6 +5,7 @@ metadata:
     app: mongo
   name: mongo-nodeport-svc
 spec:
+  type: LoadBalancer
   ports:
   - port: 27017
     protocol: TCP
@@ -12,5 +13,3 @@ spec:
     nodePort: 32000
   selector:
     app: mongo
-  type: NodePort
-

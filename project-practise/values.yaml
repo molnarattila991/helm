@@ -17,7 +17,7 @@ components:
       container: 3000
     env:
       apiPort: "3000"
-      messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
+      messageQueuConnectionString: "kubemq:50000"
 
   app_be_authentication:
     appName: "app-be-authentication"
@@ -31,7 +31,7 @@ components:
       container: 3002
     env:
       apiPort: "3002"
-      messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
+      messageQueuConnectionString: "kubemq:50000"
       mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
 
@@ -47,7 +47,7 @@ components:
       container: 3001
     env:
       apiPort: "3001"
-      messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
+      messageQueuConnectionString: "kubemq:50000"
       mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
 
@@ -63,6 +63,6 @@ components:
       container: 3003
     env:
       apiPort: "3003"
-      messageQueuConnectionString: "kubemq-cluster-grpc.kubemq:50000"
+      messageQueuConnectionString: "kubemq:50000"
       mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"

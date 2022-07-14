@@ -2,5 +2,8 @@ dependencies:
 - name: redis
   repository: https://charts.bitnami.com/bitnami
   version: 16.13.2
-digest: sha256:9e1562ed7776516b6f526318533a98cf7f9cab9ba82a8db3c786428ce27fe379
-generated: "2022-07-13T11:42:47.0810563+02:00"
+- name: kubemq
+  repository: https://kubemq-io.github.io/charts
+  version: 2.2.11
+digest: sha256:1bc56aad2efc2f2506bb4ca7decd1bc5eaf98c1880889f51da5a1570f07cb73c
+generated: "2022-07-13T19:23:45.1825301+02:00"
