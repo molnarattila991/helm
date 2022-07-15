@@ -8,13 +8,11 @@ components:
 
 ## Redis overwirte
 redis:
+  auth:
+    enabled: false
   replica:
     replicaCount: 1
   master:
     count: 1
     service:
-      type: LoadBalancer
-# kubemq:
-#   grpc:
-#     expose: LoadBalancer
-#   key: 3a561dc1-0454-4895-9eb7-8c9308afb14a
+      type: NodePort
