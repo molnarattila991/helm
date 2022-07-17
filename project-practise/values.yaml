@@ -6,6 +6,7 @@ replicaCount: 1
 
 components:
   app_be_api_gateway:
+    deploy: "false"
     appName: "app-be-api-gateway"
     image:
       name: "app-be-api-gateway"
@@ -20,10 +21,11 @@ components:
       messageQueuConnectionString: "kubemq:50000"
 
   app_be_authentication:
+    deploy: "true"
     appName: "app-be-authentication"
     image: 
       name: "app-be-authentication"
-      version: "v1.0.2"
+      version: "v1.0.6"
       policy: "IfNotPresent"
     port: 
       port: 3002
@@ -34,8 +36,14 @@ components:
       messageQueuConnectionString: "kubemq:50000"
       mongodbConnectionString: "mongodb://adminuser:password123@mongo-nodeport-svc:27017/?retryWrites=true&w=majority"
       mongodbName: "nestjs-practise"
+      redis: {
+        host: "project-infra-redis-master",
+        port: "6379",
+        password: "N7FGAPluab"
+      }
 
   app_be_user:
+    deploy: "true"
     appName: "app-be-user"
     image: 
       name: "app-be-user"
@@ -52,6 +60,7 @@ components:
       mongodbName: "nestjs-practise"
 
   app_be_product:
+    deploy: "true"
     appName: "app-be-product"
     image: 
       name: "app-be-product"

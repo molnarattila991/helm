@@ -1,3 +1,4 @@
+{{ if eq .Values.components.app_be_authentication.deploy "true" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,3 +31,10 @@ spec:
               value: {{ .Values.components.app_be_authentication.env.mongodbConnectionString }}
             - name: NEST_MONGODB_DB_NAME
               value: {{ .Values.components.app_be_authentication.env.mongodbName }}
+            - name: NEST_REDIS_HOST
+              value: {{ .Values.components.app_be_authentication.env.redis.host }}
+            - name: NEST_REDIS_PORT
+              value: {{ quote .Values.components.app_be_authentication.env.redis.port }}
+            - name: NEST_REDIS_PASSWORD
+              value: {{ .Values.components.app_be_authentication.env.redis.password }}
+{{ end }}

@@ -1,3 +1,4 @@
+{{ if eq .Values.components.app_be_user.deploy "true" }}
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,3 +31,4 @@ spec:
               value: {{ .Values.components.app_be_user.env.mongodbConnectionString }}
             - name: NEST_MONGODB_DB_NAME
               value: {{ .Values.components.app_be_user.env.mongodbName }}
+{{ end }}
