@@ -15,12 +15,14 @@
     - docker build -t app-name:app-version .
 
 ## Install application
-- helm uninstall project-infra
-- helm package project-infra
-- helm install project-infra .\project-infra-x.x.x.tgz
-- helm uninstall project-practise
-- helm package project-practise
-- helm install project-practise .\project-practise-x.x.x.tgz
+- Infra install
+    - helm uninstall project-infra
+    - helm package project-infra
+    - helm install project-infra .\project-infra-x.x.x.tgz
+- Application install
+    - helm uninstall project-practise
+    - helm package project-practise
+    - helm install project-practise .\project-practise-x.x.x.tgz
 
 # Third Party components
 
