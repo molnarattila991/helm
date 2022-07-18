@@ -35,4 +35,3 @@
 
 ## Redis
 - based on: https://phoenixnap.com/kb/kubernetes-redis, https://stackoverflow.com/questions/52552876/configuring-third-party-helm-charts-from-my-application-helm-chart
-- helm dependency update ./project-testing
