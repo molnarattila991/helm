@@ -1,4 +1,5 @@
 # Requirements
+- Docker
 - Running Kubernetes cluster
 - Node.js for building Node projects
 - Helm
@@ -7,10 +8,11 @@
 ## Pre install steps
 - clone repo
 - helm dependency update ./project-infra
-- build applications and images
- - npm run install -f
- - npm run build
- - docker build -t app-name:app-version .
+- build applications
+    - npm run install -f
+    - npm run build
+- build images
+    - docker build -t app-name:app-version .
 
 ## Install application
 - helm uninstall project-infra
