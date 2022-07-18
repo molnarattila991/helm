@@ -8,9 +8,9 @@
 - clone repo
 - helm dependency update ./project-infra
 - build applications and images
--- npm run install -f
--- npm run build
--- docker build -t app-name:app-version .
+ - npm run install -f
+ - npm run build
+ - docker build -t app-name:app-version .
 
 ## Install application
 - helm uninstall project-infra
